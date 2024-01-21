@@ -2,17 +2,15 @@ using Microsoft.EntityFrameworkCore;
 
 public class ApplicationContext : DbContext
 {
+    public ApplicationContext(DbContextOptions<ApplicationContext> options)
+        : base(options)
+    {
+    }
+
     public DbSet<Medicamento> Medicamentos { get; set; }
     public DbSet<ReacaoAdversa> ReacoesAdversas { get; set; }
     public DbSet<Fabricante> Fabricantes { get; set; }
     public DbSet<MedicamentoReacaoAdversa> MedicamentoReacoesAdversas { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        // Substitua com sua string de conexão do PostgreSQL
-        optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=farmacia;Username=postgres;Password=senha123");
-
-    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -1,4 +1,6 @@
+namespace FarmaciaApp.Models;
 public class MedicamentoReacaoAdversa
+
 {
     public int MedicamentoId { get; set; }
     public Medicamento Medicamento { get; set; }

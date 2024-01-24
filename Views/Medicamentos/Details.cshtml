@@ -1,0 +1,59 @@
+@model FarmaciaApp.Models.Medicamento
+
+@{
+    ViewData["Title"] = "Detalhes do Medicamento";
+}
+
+<h2>Detalhes do Medicamento</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NumeroRegistroAnvisa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NumeroRegistroAnvisa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DataValidade)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DataValidade.ToString("dd/MM/yyyy"))
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TelefoneSAC)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TelefoneSAC)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Preco)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Preco)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.QuantidadeComprimidos)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.QuantidadeComprimidos)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fabricante.Nome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fabricante.Nome)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Voltar à lista</a>
+</div>

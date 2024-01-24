@@ -3,6 +3,12 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Bem-vindo à FarmáciaApp</h1>
+    <p>Esta é a sua central de gerenciamento de medicamentos e reações adversas.</p>
+
+    <div class="links">
+        <a href="@Url.Action("Index", "Medicamentos")" class="btn btn-primary">Gerenciar Medicamentos</a>
+        <a href="@Url.Action("Index", "ReacoesAdversas")" class="btn btn-secondary">Gerenciar Reações Adversas</a>
+        <a href="@Url.Action("Privacy", "Home")" class="btn btn-info">Política de Privacidade</a>
+    </div>
 </div>

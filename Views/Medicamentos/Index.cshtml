@@ -1,0 +1,47 @@
+@model IEnumerable<FarmaciaApp.Models.Medicamento>
+
+@{
+    ViewData["Title"] = "Lista de Medicamentos";
+}
+
+<h2>Lista de Medicamentos</h2>
+
+@using (Html.BeginForm("Index", "Medicamentos", FormMethod.Get))
+{
+    <p>
+        <input type="text" name="searchTerm" />
+        <input type="submit" value="Pesquisar" class="btn btn-default" />
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nome)</th>
+            <th>@Html.DisplayNameFor(model => model.NumeroRegistroAnvisa)</th>
+            <th>@Html.DisplayNameFor(model => model.DataValidade)</th>
+            <th>@Html.DisplayNameFor(model => model.TelefoneSAC)</th>
+            <th>@Html.DisplayNameFor(model => model.Preco)</th>
+            <th>@Html.DisplayNameFor(model => model.QuantidadeComprimidos)</th>
+            <th>@Html.DisplayNameFor(model => model.Fabricante.Nome)</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+            <td>@Html.DisplayFor(modelItem => item.NumeroRegistroAnvisa)</td>
+            <td>@Html.DisplayFor(modelItem => item.DataValidade.ToString("dd/MM/yyyy"))</td>
+            <td>@Html.DisplayFor(modelItem => item.TelefoneSAC)</td>
+            <td>@Html.DisplayFor(modelItem => item.Preco)</td>
+            <td>@Html.DisplayFor(modelItem => item.QuantidadeComprimidos)</td>
+            <td>@Html.DisplayFor(modelItem => item.Fabricante.Nome)</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Detalhes</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

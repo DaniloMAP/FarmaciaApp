@@ -1,3 +1,4 @@
+using FarmaciaApp.Models;
 using Microsoft.EntityFrameworkCore;
 
 public class ApplicationContext : DbContext

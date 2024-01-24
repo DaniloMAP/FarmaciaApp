@@ -1,0 +1,70 @@
+@model FarmaciaApp.Models.Medicamento
+
+@{
+    ViewData["Title"] = "Adicionar Medicamento";
+}
+
+<h2>Adicionar Medicamento</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="Nome" class="control-label"></label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NumeroRegistroAnvisa" class="control-label"></label>
+        <input asp-for="NumeroRegistroAnvisa" class="form-control" id="NumeroRegistroAnvisa" />
+        <span asp-validation-for="NumeroRegistroAnvisa" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DataValidade" class="control-label"></label>
+        <input asp-for="DataValidade" class="form-control" type="date" />
+        <span asp-validation-for="DataValidade" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TelefoneSAC" class="control-label"></label>
+        <input asp-for="TelefoneSAC" class="form-control" id="TelefoneSAC" />
+        <span asp-validation-for="TelefoneSAC" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Preco" class="control-label"></label>
+        <input asp-for="Preco" class="form-control" type="number" step="0.01" id="Preco" />
+        <span asp-validation-for="Preco" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="QuantidadeComprimidos" class="control-label"></label>
+        <input asp-for="QuantidadeComprimidos" class="form-control" type="number" />
+        <span asp-validation-for="QuantidadeComprimidos" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FabricanteId" class="control-label"></label>
+        <select asp-for="FabricanteId" class="form-control" asp-items="ViewBag.FabricanteId"></select>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Adicionar" class="btn btn-success" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Voltar à lista</a>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function(){
+            $('#NumeroRegistroAnvisa').mask('0.0000.0000.000-0');
+            $('#TelefoneSAC').mask('(00) 0000-0000');
+            $('#DataValidade').mask('00/00/0000');
+            $('#Preco').mask('000.000.000.000.000,00', {reverse: true});
+        });
+    </script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

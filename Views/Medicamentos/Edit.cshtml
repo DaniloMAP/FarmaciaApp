@@ -62,10 +62,10 @@
 @section Scripts {
     <script>
         $(document).ready(function(){
-            $('#NumeroRegistroAnvisa').mask('0.0000.0000.000-0');
-            $('#TelefoneSAC').mask('(00) 0000-0000');
-            $('#DataValidade').mask('00/00/0000');
-            $('#Preco').mask('000.000.000.000.000,00', {reverse: true});
+          //  $('#NumeroRegistroAnvisa').mask('0.0000.0000.000-0');
+            //$('#TelefoneSAC').mask('(00) 0000-0000');
+            //$('#DataValidade').mask('00/00/0000');
+            //$('#Preco').mask('000.000.000.000.000,00', {reverse: true});
         });
     </script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

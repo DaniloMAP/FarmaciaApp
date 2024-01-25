@@ -49,20 +49,17 @@ namespace FarmaciaApp.Controllers
             return View();
         }
 
-        // POST: Medicamentos/Create
+         // POST: Medicamentos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,NumeroRegistroAnvisa,Nome,DataValidade,TelefoneSAC,Preco,QuantidadeComprimidos,FabricanteId")] Medicamento medicamento)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(medicamento);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["FabricanteId"] = new SelectList(_context.Fabricantes, "Id", "Nome", medicamento.FabricanteId);
-            return View(medicamento);
+            _context.Add(medicamento);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
+
+
 
         // GET: Medicamentos/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -82,38 +79,34 @@ namespace FarmaciaApp.Controllers
         }
 
         // POST: Medicamentos/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NumeroRegistroAnvisa,Nome,DataValidade,TelefoneSAC,Preco,QuantidadeComprimidos,FabricanteId")] Medicamento medicamento)
-        {
-            if (id != medicamento.Id)
-            {
-                return NotFound();
-            }
+[HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> Edit(int id, [Bind("Id,NumeroRegistroAnvisa,Nome,DataValidade,TelefoneSAC,Preco,QuantidadeComprimidos,FabricanteId")] Medicamento medicamento)
+{
+    if (id != medicamento.Id)
+    {
+        return NotFound();
+    }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(medicamento);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!MedicamentoExists(medicamento.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["FabricanteId"] = new SelectList(_context.Fabricantes, "Id", "Nome", medicamento.FabricanteId);
-            return View(medicamento);
+    try
+    {
+        _context.Update(medicamento);
+        await _context.SaveChangesAsync();
+    }
+    catch (DbUpdateConcurrencyException)
+    {
+        if (!MedicamentoExists(medicamento.Id))
+        {
+            return NotFound();
         }
+        else
+        {
+            throw;
+        }
+    }
+    return RedirectToAction(nameof(Index));
+}
+
 
         // GET: Medicamentos/Delete/5
         public async Task<IActionResult> Delete(int? id)

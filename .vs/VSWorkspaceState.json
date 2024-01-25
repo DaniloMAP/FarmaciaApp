@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Models",
+    "\\Properties",
+    "\\Views",
+    "\\Views\\Medicamentos",
+    "\\Views\\ReacoesAdversas",
+    "\\Views\\Shared",
+    "\\wwwroot",
+    "\\wwwroot\\css",
+    "\\wwwroot\\js"
+  ],
+  "SelectedNode": "\\Models\\ReacaoAdversa.cs",
+  "PreviewInSolutionExplorer": false
+}

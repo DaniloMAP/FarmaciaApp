@@ -31,12 +31,12 @@ namespace FarmaciaApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Descricao")] ReacaoAdversa reacaoAdversa)
         {
-            if (ModelState.IsValid)
-            {
+            
+            
                 _context.Add(reacaoAdversa);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+            
             return View(reacaoAdversa);
         }
 
@@ -66,8 +66,8 @@ namespace FarmaciaApp.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+           
+            
                 try
                 {
                     _context.Update(reacaoAdversa);
@@ -85,7 +85,7 @@ namespace FarmaciaApp.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
+            
             return View(reacaoAdversa);
         }
 
